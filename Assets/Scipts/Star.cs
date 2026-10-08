@@ -35,6 +35,11 @@ public class Star : MonoBehaviour
                 GameManager.Instance.AddScore(scorePoints);
             }
 
+            // Tích lũy sao/tiền tệ vào ví người chơi để mua tàu trong Shop
+            int totalStars = PlayerPrefs.GetInt("TotalStars", 0);
+            PlayerPrefs.SetInt("TotalStars", totalStars + 1);
+            PlayerPrefs.Save();
+
             // Hủy ngôi sao sau khi ăn
             Destroy(gameObject);
         }
